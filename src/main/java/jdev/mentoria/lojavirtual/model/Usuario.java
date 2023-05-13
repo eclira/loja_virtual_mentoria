@@ -46,10 +46,19 @@ private static final long serialVersionUID = 1L;
 	name = "unique_acesso_user"),
 	joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id", table = "usuario", unique = false,
 	foreignKey = @ForeignKey(name = "usuario_fk", value = ConstraintMode.CONSTRAINT)),
-	inverseJoinColumns = @JoinColumn(name = "acesso_id", unique = false, 
+	inverseJoinColumns = @JoinColumn(name = "acesso_id", unique = false,
 	referencedColumnName = "id", table = "acesso", foreignKey = @ForeignKey(name = "acesso_fk",
 	value = ConstraintMode.CONSTRAINT)))
 	private List<Acesso> acessos;
+	/* AULA 2.4
+	 - @JoinTable criou a classe automaticamente no banco = usuarios_acesso 
+	 -> Criou uma restrição (name = unique_acesso_user) pra ñ ter cadastro repetido = {"usuario_id", "acesso_id"}
+	 - joinColumns = @JoinColumn(name = "usuario_id - aponta pro id da tabela usuario
+	 - inverseJoinColumns = @JoinColumn(name = "acesso_id - aponta pro id da tabela acesso
+	 */
+	
+	
+	
 	
 	@Column(name = "data_atual_senha", nullable = false)
 	@Temporal(TemporalType.DATE)
